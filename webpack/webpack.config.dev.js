@@ -3,6 +3,12 @@ const Webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
+var API_URL = {
+  production: JSON.stringify('prod-url'),
+  development: JSON.stringify('http://localhost:3000/')
+}
+var environment = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+
 module.exports = merge(common, {
   mode: 'development',
   watch: true,
@@ -16,6 +22,9 @@ module.exports = merge(common, {
   plugins: [
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
+    }),
+    new Webpack.DefinePlugin({
+      'API_URL': API_URL[environment]
     })
   ],
   module: {
