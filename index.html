@@ -40,9 +40,10 @@
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.onload = function () {
         console.log('Signed in as: ' + xhr.responseText);
+        localStorage.setItem('user', xhr.responseText);
       };
       xhr.send('idtoken=' + id_token);
-      localStorage.setItem('token', id_token);
+   
     }
   </script>
 

@@ -11,8 +11,9 @@ var API_URL = {
 var devMode = true;
 
 module.exports = {
-    entry: ['babel-polyfill','./src/scripts/index.js'],
+    entry: ['babel-polyfill', './src/scripts/index.js'],
     watch: true,
+    devtool: 'inline-source-map',
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'index_bundle.js'
@@ -109,7 +110,7 @@ module.exports = {
             'process.env.MEDIATOR_JS_COV': JSON.stringify('development')
         }),
         //new BundleAnalyzerPlugin()
-    ],optimization: {
+    ], optimization: {
         minimize: false
     },
 };
