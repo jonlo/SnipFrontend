@@ -11,7 +11,7 @@ var API_URL = {
 var devMode = true;
 
 module.exports = {
-    entry: ['babel-polyfill', './src/scripts/index.js'],
+    entry: ['babel-polyfill', './src/scripts/index.js','./src/styles/main.css'],
     watch: true,
     devtool: 'inline-source-map',
     output: {

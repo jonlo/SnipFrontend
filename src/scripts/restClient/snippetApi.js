@@ -1,4 +1,5 @@
 import axios from 'axios';
+var API_URL = "http://localhost:3000";
 
 const getSnippets = async (from, limit) => {
    // console.log(localStorage.user);
@@ -6,7 +7,7 @@ const getSnippets = async (from, limit) => {
     let token = user.token;
     const response = await axios({
         method: 'get',
-        url: `http://localhost:3000/snippet`,
+        url: `${API_URL}/snippet`,
         headers: { 'token': token },
         params: {
             from: from,
@@ -17,9 +18,7 @@ const getSnippets = async (from, limit) => {
         throw new Error('No results');
     }
 
-    return {
-        snippets: response.data.snippets
-    };
+    return response.data;
 }
 
 export { getSnippets };
