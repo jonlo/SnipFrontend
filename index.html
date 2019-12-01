@@ -11,25 +11,24 @@
 </head>
 
 <body>
-
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/monokai.min.css">
   <nav id="top-bar">
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
     <a href="#" onclick="signOut();">Sign out</a>
   </nav>
-  <div id = "center-panel">
-      <nav id="options-bar">
-      </nav>
-      <nav id="snippets-bar">
-        <h2>Snippets</h2>
-        <section id="snippets-holder">
-        </section>
-      </nav>
+  <div id="center-panel">
+    <nav id="options-bar">
+    </nav>
+    <nav id="snippets-bar">
+      <h2>Snippets</h2>
+      <section id="snippets-holder">
+      </section>
+    </nav>
     <aside id="snippet-aside">
-      <h2> Title</h2>
-      <p>description</p>
-      <code>
-        snippet
-      </code>
+      <h2 id ="snippet-title"> </h2>
+      <p id ="snippet-description" ></p>
+      <pre><code id ="snippet-code"></code></pre>
+
     </aside>
   </div>
 
@@ -62,7 +61,6 @@
 
     }
   </script>
-
 </body>
 
 </html>

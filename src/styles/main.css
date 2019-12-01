@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
   height: 100%;
-  background-color: #222222;
+  background-color: #191919;
 }
 
 html {
@@ -30,12 +30,15 @@ h2 {
   background-color: #191919;
   height: 100%;
   width: 15%;
+  resize: horizontal;
 }
 
 #snippets-bar {
   background-color: #222222;
   height: 100%;
   width: 15%;
+  overflow:auto;
+  resize: horizontal;
   border-right: 1px solid #191919;
 }
 
@@ -47,6 +50,7 @@ h2 {
   line-height: 25px;
   margin-bottom: 1px;
   padding-left: 5px;
+  white-space: nowrap;
 }
 
 .snippet-box:hover {
@@ -56,5 +60,13 @@ h2 {
 
 #snippet-aside {
   height: 100%;
-  width: 70%;
+  resize: horizontal;
+  width: 100%;
+  background-color: #222222;
+  padding-left: 20px;
+  color: #D6D8DB;
+}
+
+#snippet-code{
+  background: #222222;
 }

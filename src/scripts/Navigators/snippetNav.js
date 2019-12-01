@@ -1,5 +1,7 @@
 class SnippetNav {
-    constructor() {
+
+    constructor(_snippetAside) {
+        this.snippetAside = _snippetAside;
         this.snippets = [];
         this.parentDiv = document.getElementById('snippets-holder');
     }
@@ -22,7 +24,7 @@ class SnippetNav {
     }
 
     showSnippet(e, i) {
-        console.log(this.snippets[i]);
+        this.snippetAside.loadSnippet(this.snippets[i]);
     }
 }
 

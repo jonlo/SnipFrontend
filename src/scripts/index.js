@@ -1,8 +1,10 @@
 import '../styles/main.css';
 import { getSnippets } from "./restClient/snippetApi";
 import { SnippetNav } from "./Navigators/snippetNav";
+import { SnippetAside } from "./Navigators/snippetAside";
 
 var snippetNav;
+var snippetAside;
 
 window.addEventListener('load', function () {
     init();
@@ -11,7 +13,8 @@ window.addEventListener('load', function () {
 
 
 function init() {
-    snippetNav = new SnippetNav();
+    snippetAside = new SnippetAside();
+    snippetNav = new SnippetNav(snippetAside);
     getSnippetsFromAPI();
 }
 
@@ -21,6 +24,7 @@ async function getSnippetsFromAPI() {
         snippetNav.populate(result.snippets);
     }
 }
+
 
 
 

@@ -19,7 +19,8 @@
   "homepage": "https://github.com/jonlo/Drop#readme",
   "dependencies": {
     "axios": "^0.19.0",
-    "babel-preset-es2016": "^6.24.1"
+    "babel-preset-es2016": "^6.24.1",
+    "highlight.js": "^9.16.2"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
