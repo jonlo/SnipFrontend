@@ -51,6 +51,7 @@ h2 {
 
 .snippet-box:hover {
   background-color: #191919;
+  cursor: pointer;
 }
 
 #snippet-aside {
