@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   height: 100%;
   background-color: #191919;
 }
@@ -8,9 +8,14 @@ html {
   height: 100%;
 }
 
-h2 {
+.header {
+  height: 50px;
+  border-bottom: 1px solid #D6D8DB;
+}
+
+.title {
   color: #D6D8DB;
-  text-align: center;
+  line-height: 50px;
 }
 
 #top-bar {
@@ -29,27 +34,33 @@ h2 {
 #options-bar {
   background-color: #191919;
   height: 100%;
-  width: 15%;
+  flex: 0.25;
+  min-width: 150px;
   resize: horizontal;
 }
 
 #snippets-bar {
   background-color: #222222;
   height: 100%;
-  width: 15%;
-  overflow:auto;
+  flex: 0.25;
+  min-width: 250px;
+  overflow: auto;
   resize: horizontal;
   border-right: 1px solid #191919;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#snippets-holder{
+  display:flex;
+  flex-direction: column;
 }
 
 .snippet-box {
-  border: 0;
   border-bottom: 1px solid #191919;
   color: #D6D8DB;
-  height: 25px;
-  line-height: 25px;
-  margin-bottom: 1px;
-  padding-left: 5px;
+  height: 35px;
+  line-height: 35px;
   white-space: nowrap;
 }
 
@@ -61,12 +72,13 @@ h2 {
 #snippet-aside {
   height: 100%;
   resize: horizontal;
-  width: 100%;
+  flex: 1; 
   background-color: #222222;
   padding-left: 20px;
+  padding-right: 20px;
   color: #D6D8DB;
 }
 
-#snippet-code{
+ #snippet-code { 
   background: #222222;
 }

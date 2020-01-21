@@ -8,6 +8,8 @@
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <meta name="google-signin-client_id"
     content="21903024464-7r8m8b4659h2ejcj523aqg1iog04sajc.apps.googleusercontent.com">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="main.css" rel="stylesheet">
 <link href="main.css" rel="stylesheet"></head>
 
 <body>
@@ -20,13 +22,18 @@
     <nav id="options-bar">
     </nav>
     <nav id="snippets-bar">
-      <h2>Snippets</h2>
+      <div class="header">
+        <h2 class="title">Snippets</h2>
+      </div>
+
       <section id="snippets-holder">
       </section>
     </nav>
     <aside id="snippet-aside">
-      <h2 id ="snippet-title"> </h2>
-      <p id ="snippet-description" ></p>
+      <div class="header">
+        <h2 id="snippet-title" class="title"></h2>
+      </div>
+      <p id="snippet-description"></p>
       <pre><code id ="snippet-code"></code></pre>
 
     </aside>
@@ -61,6 +68,7 @@
 
     }
   </script>
+  <script type="text/javascript" src="index_bundle.js"></script>
 <script type="text/javascript" src="index_bundle.js"></script></body>
 
 </html>
