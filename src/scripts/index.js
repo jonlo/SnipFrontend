@@ -2,6 +2,7 @@ import '../styles/main.css';
 import { getSnippets } from "./restClient/snippetApi";
 import { SnippetNav } from "./Navigators/snippetNav";
 import { SnippetAside } from "./Navigators/snippetAside";
+import {ActionButtons} from "./Navigators/actionButtons";
 
 var snippetNav;
 var snippetAside;
@@ -18,7 +19,8 @@ window.addEventListener('load', function () {
 
 function init() {
     snippetAside = new SnippetAside();
-    snippetNav = new SnippetNav(snippetAside);
+    snippetNav = new SnippetNav();
+    ActionButtons = new ActionButtons();
     googleSignOut.addEventListener('click', () => {
         signOut();
     });
