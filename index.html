@@ -10,16 +10,25 @@
     content="21903024464-7r8m8b4659h2ejcj523aqg1iog04sajc.apps.googleusercontent.com">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="main.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a0f828ea22.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/monokai.min.css">
   <nav id="top-bar">
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    <a href="#" onclick="signOut();">Sign out</a>
+    <div id="google-signin""></div>
+    <a href=" #" id="googleSignOut">Sign out</a>
   </nav>
   <div id="center-panel">
     <nav id="options-bar">
+      <img src="" alt="" id="user-img">
+      <div class="section">
+        <div class="snippetButtons">
+          <button id="newSnippet" class="far fa-plus-square">
+            <span>New</span>
+          </button>
+        </div>
+      </div>
     </nav>
     <nav id="snippets-bar">
       <div class="header">
@@ -38,37 +47,6 @@
 
     </aside>
   </div>
-
-  <script>
-    function signOut() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function () {
-        console.log('User signed out.');
-      });
-    }
-  </script>
-
-  <script>
-    function onSignIn(googleUser) {
-      var profile = googleUser.getBasicProfile();
-      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-      var id_token = googleUser.getAuthResponse().id_token;
-      console.log(id_token);
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://snippetsaver.herokuapp.com/google');
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.onload = function () {
-        console.log('Signed in as: ' + xhr.responseText);
-        localStorage.setItem('user', xhr.responseText);
-      };
-      xhr.send('idtoken=' + id_token);
-
-    }
-  </script>
-  <script type="text/javascript" src="index_bundle.js"></script>
 </body>
 
 </html>

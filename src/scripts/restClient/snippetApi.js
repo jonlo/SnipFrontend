@@ -1,5 +1,5 @@
 import axios from 'axios';
-var API_URL = "https://snippetsaver.herokuapp.com";
+var API_URL = 'http://localhost:3000';//"https://snippetsaver.herokuapp.com";
 
 const getSnippets = async (from, limit) => {
    // console.log(localStorage.user);

@@ -28,16 +28,54 @@ html {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: row;
   flex-wrap: nowrap;
 }
 
 #options-bar {
   background-color: #191919;
   height: 100%;
-  flex: 0.25;
+  /* flex: 0.25; */
+  margin: 0px 10px 0px 0px;
   min-width: 150px;
   resize: horizontal;
 }
+
+#user-img {
+  background-color: #D6D8DB;
+  width: 100%;
+  height: 100px;
+  margin: 5px 0px 0px 0px;
+
+}
+
+.section {
+  background-color: #222222;
+  width: 100%;
+  height: 30px;
+  margin: 5px 0px 0px 0px;
+}
+
+.snippetButtons {
+  background-color: #222222;
+}
+
+#newSnippet {
+  background-color: #222222;
+  color:#D6D8DB;
+  border: 0;
+  font-size: 24px;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  margin:5px;
+  transition: transform 0.3s ease;
+}
+
+#newSnippet:focus{
+	outline: none;
+}
+
 
 #snippets-bar {
   background-color: #222222;
@@ -51,8 +89,8 @@ html {
   padding-right: 20px;
 }
 
-#snippets-holder{
-  display:flex;
+#snippets-holder {
+  display: flex;
   flex-direction: column;
 }
 
@@ -72,13 +110,13 @@ html {
 #snippet-aside {
   height: 100%;
   resize: horizontal;
-  flex: 1; 
+  flex: 1;
   background-color: #222222;
   padding-left: 20px;
   padding-right: 20px;
   color: #D6D8DB;
 }
 
- #snippet-code { 
+#snippet-code {
   background: #222222;
 }
