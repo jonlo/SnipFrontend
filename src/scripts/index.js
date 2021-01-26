@@ -2,13 +2,13 @@ import '../styles/main.css';
 import { getSnippets } from "./restClient/snippetApi";
 import { SnippetNav } from "./Navigators/snippetNav";
 import { SnippetAside } from "./Navigators/snippetAside";
-import {ActionButtons} from "./Navigators/actionButtons";
+import { ActionButtons } from "./Navigators/actionButtons";
 
 var snippetNav;
 var snippetAside;
 let googleSignOut;
 let googleSignin;
-
+const actionButtons = new ActionButtons();
 window.addEventListener('load', function () {
     googleSignOut = document.getElementById('googleSignOut');
     googleSignin = document.getElementById('google-signin')
@@ -20,7 +20,7 @@ window.addEventListener('load', function () {
 function init() {
     snippetAside = new SnippetAside();
     snippetNav = new SnippetNav();
-    ActionButtons = new ActionButtons();
+
     googleSignOut.addEventListener('click', () => {
         signOut();
     });
