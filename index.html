@@ -19,15 +19,34 @@
     <div id="google-signin""></div>
     <a href=" #" id="googleSignOut">Sign out</a>
   </nav>
- 
+
   <div id="center-panel">
     <div class="modal" id="addSnippet">
       <div class="modal-content">
-        <btn class="close">x</btn>
+        <div class="header-new">
+          <h3>New</h3>
+          <btn class="close">x</btn>
+        </div>
+        <form  id="addSnippetForm">
+          <div class="form-control">
+            <input id="titleInput" type="text" required placeholder="Title">
+          </div>
+          <div class="form-control">
+            <input id="descriptionInput" type="text" required placeholder="Description">
+          </div>
+          <div class="form-control">
+            <input id="filenameInput" type="text" required placeholder="File name (e.g. snippet.js">
+          </div>
+          <textarea id="snippetText" rows="4" cols="50"  placeholder="Snippet.." ></textarea>
+        </form>
+        <div class="modalButtons">
+          <button class="btn">Cancel</button>
+          <button class="btn" type="submit" form="addSnippetForm">Add</button>
+        </div>
       </div>
 
     </div>
-    
+
     <nav id="options-bar">
       <img src="" alt="" id="user-img">
       <div class="section">
@@ -55,7 +74,7 @@
 
     </aside>
   </div>
-  
+
   </div>
 </body>
 
