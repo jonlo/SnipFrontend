@@ -3,12 +3,16 @@ import { getSnippets } from "./restClient/snippetApi";
 import { SnippetNav } from "./Navigators/snippetNav";
 import { SnippetAside } from "./Navigators/snippetAside";
 import { ActionButtons } from "./Navigators/actionButtons";
+import { AddSnippetModalView } from "./Navigators/addSnippetModalView";
 
 var snippetNav;
 var snippetAside;
 let googleSignOut;
 let googleSignin;
+
 const actionButtons = new ActionButtons();
+const addSnippet = new AddSnippetModalView();
+
 window.addEventListener('load', function () {
     googleSignOut = document.getElementById('googleSignOut');
     googleSignin = document.getElementById('google-signin')
@@ -19,7 +23,7 @@ window.addEventListener('load', function () {
 
 function init() {
     snippetAside = new SnippetAside();
-    snippetNav = new SnippetNav();
+    snippetNav = new SnippetNav(snippetAside);
 
     googleSignOut.addEventListener('click', () => {
         signOut();
@@ -64,6 +68,7 @@ function onSignIn(googleUser) {
 
     googleSignin.hidden = true;
     googleSignOut.hidden = false;
+    getSnippetsFromAPI();
 }
 
 function onFailure(error) {

@@ -27,7 +27,7 @@
           <h3>New</h3>
           <btn class="close">x</btn>
         </div>
-        <form  id="addSnippetForm">
+        <form id="addSnippetForm">
           <div class="form-control">
             <input id="titleInput" type="text" required placeholder="Title">
           </div>
@@ -37,11 +37,11 @@
           <div class="form-control">
             <input id="filenameInput" type="text" required placeholder="File name (e.g. snippet.js">
           </div>
-          <textarea id="snippetText" rows="4" cols="50"  placeholder="Snippet.." ></textarea>
+          <textarea id="snippetText" rows="4" cols="50" placeholder="Snippet.."></textarea>
         </form>
         <div class="modalButtons">
-          <button class="btn">Cancel</button>
-          <button class="btn" type="submit" form="addSnippetForm">Add</button>
+          <button class="btn" id="addSnippet-cancelBtn">Cancel</button>
+          <button class="btn" id="addSnippet-addBtn">Add</button>
         </div>
       </div>
 
@@ -59,7 +59,7 @@
     </nav>
     <nav id="snippets-bar">
       <div class="header">
-        <h2 class="title">Snippets</h2>
+        <h3 class="title">Snippets</h3>
       </div>
 
       <section id="snippets-holder">
@@ -67,7 +67,7 @@
     </nav>
     <aside id="snippet-aside">
       <div class="header">
-        <h2 id="snippet-title" class="title"></h2>
+        <h3 id="snippet-title" class="title"></h3>
       </div>
       <p id="snippet-description"></p>
       <pre><code id ="snippet-code"></code></pre>
