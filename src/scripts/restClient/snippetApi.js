@@ -44,3 +44,17 @@ export const addSnippet = async (snippetData) => {
     });
     return response.data;
 }
+
+export const deleteSnippet = async (id) => {
+    let user = JSON.parse(localStorage.user)
+    let token = user.token;
+    const response = await axios({
+        method: 'delete',
+        url: `${API_URL}/snippet/${id}`,
+        headers: {
+            'token': token,
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    });
+    return response.data;
+}

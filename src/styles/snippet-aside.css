@@ -1,0 +1,28 @@
+
+#snippet-aside {
+    height: 100%;
+    resize: horizontal;
+    flex: 1;
+    background-color: #222222;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #D6D8DB;
+  }
+  
+  .snip-header {
+    font-size: 12px;
+    background-color: #191919;
+    padding: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  
+  #snippet-filename {
+    margin-left: 10px;
+  }
+  
+  #snippet-code {
+    background: #222222;
+  }

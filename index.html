@@ -51,8 +51,7 @@
       <img src="" alt="" id="user-img">
       <div class="section">
         <div class="snippetButtons">
-          <button id="newSnippet" class="far fa-plus-square">
-            <span>New</span>
+          <button id="newSnippet" class="far fas fa-plus snip-action-button">
           </button>
         </div>
       </div>
@@ -61,7 +60,6 @@
       <div class="header">
         <h3 class="title">Snippets</h3>
       </div>
-
       <section id="snippets-holder">
       </section>
     </nav>
@@ -70,6 +68,14 @@
         <h3 id="snippet-title" class="title"></h3>
       </div>
       <p id="snippet-description"></p>
+      <div id="snip-actions-header" class="snip-header">
+        <p id="snippet-filename"></p>
+        <div class="snip-action-bar">
+          <button id="editSnippet" class="far fa-edit snip-action-button"></button>
+          <button id="copySnippet" class="far fa-copy snip-action-button"></button>
+          <button id="deleteSnippet" class="far fa-trash-alt snip-action-button"></button>
+        </div>
+      </div>
       <pre><code id ="snippet-code"></code></pre>
 
     </aside>

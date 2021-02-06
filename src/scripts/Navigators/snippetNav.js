@@ -1,13 +1,23 @@
-class SnippetNav {
+import { getSnippets } from "../restClient/snippetApi";
 
-    constructor(_snippetAside) {
-        this.snippetAside = _snippetAside;
+export class SnippetNav {
+
+    constructor(main) {
+        this.mainView = main;
         this.snippets = [];
         this.parentDiv = document.getElementById('snippets-holder');
     }
 
-    populate(_snippets) {
+    async loadSnippets() {
+        this.snippets = [];
+        var result = await getSnippets(0, 100);
+        if (result.ok) {
+            this.populate(result.snippets);
+        }
+    }
 
+    populate(_snippets) {
+        this.parentDiv.innerHTML = '';
         while (this.parentDiv.firstChild) {
             this.parentDiv.removeChild(this.parentDiv.firstChild);
         }
@@ -24,8 +34,6 @@ class SnippetNav {
     }
 
     showSnippet(e, i) {
-        this.snippetAside.loadSnippet(this.snippets[i]);
+        this.mainView.snippetAside.loadSnippet(this.snippets[i]);
     }
 }
-
-export { SnippetNav };

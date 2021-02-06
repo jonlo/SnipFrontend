@@ -3,7 +3,8 @@ import { addSnippet as addSnippetToRestClient } from "../restClient/snippetApi";
 
 export class AddSnippetModalView {
 
-    constructor() {
+    constructor(mainView) {
+        this.mainView = mainView;
         this.container = document.getElementById('addSnippet');
         this.cancelBtn = document.getElementById("addSnippet-cancelBtn")
         this.cancelBtn.addEventListener('click', () => {
@@ -14,7 +15,7 @@ export class AddSnippetModalView {
         this.addBtn.addEventListener('click', () => {
             this.addSnippet();
         });
-
+        this.container.style.visibility = "visible";
         this.titleInput = document.getElementById('titleInput');
         this.descriptionInput = document.getElementById('descriptionInput');
         this.filenameInput = document.getElementById('filenameInput');
@@ -26,7 +27,7 @@ export class AddSnippetModalView {
         this.container.style.visibility = "hidden";
     }
 
-    addSnippet() {
+    async addSnippet() {
         this.closeModalView();
         const snippetData = {
             title: this.titleInput.value,
@@ -36,6 +37,8 @@ export class AddSnippetModalView {
             filename: this.filenameInput.value,
             tags: []
         };
-        addSnippetToRestClient(snippetData);
+        let response = await addSnippetToRestClient(snippetData);
+        this.mainView.snippetNav.loadSnippets();
+
     }
 }

@@ -1,23 +1,84 @@
 import hljs from 'highlight.js';
-
+import { deleteSnippet } from '../restClient/snippetApi';
 
 class SnippetAside {
 
-    constructor() {
+    constructor(main) {
+        this.mainView = main;
+        this.header = document.getElementById('snip-actions-header');
         this.parentDiv = document.getElementById('snippet-aside');
         this.title = document.getElementById('snippet-title');
         this.description = document.getElementById('snippet-description');
+        this.fileName = document.getElementById("snippet-filename");
         this.code = document.getElementById('snippet-code');
+        this.setEventListeners();
+        this.hideHeader();
+
+    }
+
+    setEventListeners() {
+        document.getElementById('editSnippet').addEventListener('click', () => {
+            this.editSnippetAction();
+        });
+        document.getElementById('copySnippet').addEventListener('click', () => {
+            this.copySnippetAction();
+        });
+        document.getElementById('deleteSnippet').addEventListener('click', () => {
+            this.deleteSnippetAction();
+        });
     }
 
     loadSnippet(snippet) {
-        this.title.innerHTML = snippet.title;
-        this.description.innerHTML = `${snippet.description}`;
-        this.code.className = snippet.language;
-        this.code.innerHTML = snippet.code;
+        this.showHeader();
+        this.snippet = snippet;
+        this.title.innerHTML = this.snippet.title;
+        this.description.innerHTML = `${this.snippet.description}`;
+        this.code.className = this.snippet.language;
+        this.code.innerHTML = this.snippet.code;
+        this.fileName.innerHTML = this.snippet.filename;
         document.querySelectorAll('pre code').forEach((block) => {
             hljs.highlightBlock(block);
         });
+    }
+
+    showHeader() {
+        this.header.style.visibility = "visible";
+    }
+
+    hideHeader() {
+        this.header.style.visibility = "hidden";
+    }
+
+    clearView() {
+        this.code.innerHTML = '';
+        this.title.innerHTML = '';
+        this.description.innerHTML = '';
+        this.code.className = '';
+        this.fileName.innerHTML = '';
+        this.snippet = null;
+    }
+
+    editSnippetAction() {
+
+    }
+
+    copySnippetAction() {
+        const str = this.code.innerText;
+        const el = document.createElement('textarea');
+        el.value = str;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+
+        alert("Copied the snippet");
+    }
+
+    async deleteSnippetAction() {
+        let response = await deleteSnippet(this.snippet._id);
+        this.mainView.snippetNav.loadSnippets();
+        this.hideHeader();
+        this.clearView();
     }
 
 }

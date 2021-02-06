@@ -1,20 +1,18 @@
 
-import { addSnippet } from "../restClient/snippetApi";
+import { AddSnippetModalView } from "./addSnippetModalView";
 
-export class ActionButtons{
-    
-    constructor(apiHandler){
-        this.apiHandler = apiHandler;
-        this.container = document.getElementById('addSnippet');
-        this.container.style.visibility = "hidden";
-        this.newSnippetButton = document.getElementById('newSnippet');
-        this.newSnippetButton.addEventListener('click',()=>{
+export class ActionButtons {
+
+    constructor(main) {
+        this.mainView = main;
+        let newSnippetButton = document.getElementById('newSnippet');
+        newSnippetButton.addEventListener('click', () => {
             this.openNewSnippetMenu();
         })
     }
 
-    openNewSnippetMenu(){
-        this.container.style.visibility = "visible";
+    openNewSnippetMenu() {
+        let modalView = new AddSnippetModalView(this.mainView);
         console.log("open menu new");
     }
 }
