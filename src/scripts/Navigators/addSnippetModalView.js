@@ -1,9 +1,13 @@
 
-import { addSnippet as addSnippetToRestClient } from "../restClient/snippetApi";
+import { addSnippet, updateSnippet } from "../restClient/snippetApi";
 
 export class AddSnippetModalView {
 
-    constructor(mainView) {
+    constructor(mainView, snippet) {
+        if (snippet) {
+            this.updating = true;
+            this.snippet = snippet;
+        }
         this.mainView = mainView;
         this.container = document.getElementById('addSnippet');
         this.cancelBtn = document.getElementById("addSnippet-cancelBtn")
@@ -13,21 +17,31 @@ export class AddSnippetModalView {
         this.addBtn = document.getElementById("addSnippet-addBtn");
 
         this.addBtn.addEventListener('click', () => {
-            this.addSnippet();
+            this.addSnippetToAPI();
         });
         this.container.style.visibility = "visible";
         this.titleInput = document.getElementById('titleInput');
         this.descriptionInput = document.getElementById('descriptionInput');
         this.filenameInput = document.getElementById('filenameInput');
         this.snippetText = document.getElementById('snippetText');
-
+        if (this.snippet) {
+            this.loadInputs();
+            this.addBtn.innerHTML = 'Update';
+        }
     }
 
     closeModalView() {
         this.container.style.visibility = "hidden";
     }
 
-    async addSnippet() {
+    loadInputs() {
+        this.titleInput.value = this.snippet.title;
+        this.descriptionInput.value = this.snippet.description;
+        this.filenameInput.value = this.snippet.filename;
+        this.snippetText.value = this.snippet.code;
+    }
+
+    async addSnippetToAPI() {
         this.closeModalView();
         const snippetData = {
             title: this.titleInput.value,
@@ -37,7 +51,12 @@ export class AddSnippetModalView {
             filename: this.filenameInput.value,
             tags: []
         };
-        let response = await addSnippetToRestClient(snippetData);
+        if (this.updating) {
+            snippetData.id = this.snippet._id;
+            let response = await updateSnippet(snippetData);
+        } else {
+            let response = await addSnippet(snippetData);
+        }
         this.mainView.snippetNav.loadSnippets();
 
     }

@@ -25,7 +25,7 @@ export const addSnippet = async (snippetData) => {
 
     var urlencoded = new URLSearchParams();
     urlencoded.append("title", snippetData.title);
-     urlencoded.append("tags", snippetData.tags);
+    urlencoded.append("tags", snippetData.tags);
     urlencoded.append("description", snippetData.description);
     urlencoded.append("language", snippetData.language);
     urlencoded.append("filename", snippetData.filename);
@@ -44,6 +44,31 @@ export const addSnippet = async (snippetData) => {
     });
     return response.data;
 }
+
+
+export const updateSnippet = async (snippetData) => {
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("title", snippetData.title);
+    urlencoded.append("tags", snippetData.tags);
+    urlencoded.append("description", snippetData.description);
+    urlencoded.append("language", snippetData.language);
+    urlencoded.append("filename", snippetData.filename);
+    urlencoded.append("code", snippetData.code);
+    let user = JSON.parse(localStorage.user)
+    let token = user.token;
+    const response = await axios({
+        method: 'put',
+        url: `${API_URL}/snippet/${snippetData.id}`,
+        headers: {
+            'token': token,
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: urlencoded
+
+    });
+    return response.data;
+}
+
 
 export const deleteSnippet = async (id) => {
     let user = JSON.parse(localStorage.user)

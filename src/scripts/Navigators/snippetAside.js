@@ -1,5 +1,6 @@
 import hljs from 'highlight.js';
 import { deleteSnippet } from '../restClient/snippetApi';
+import { AddSnippetModalView } from "./addSnippetModalView";
 
 class SnippetAside {
 
@@ -35,6 +36,8 @@ class SnippetAside {
         this.description.innerHTML = `${this.snippet.description}`;
         this.code.className = this.snippet.language;
         this.code.innerHTML = this.snippet.code;
+        this.code.className = '';
+        this.code.className = `${this.snippet.language}`;
         this.fileName.innerHTML = this.snippet.filename;
         document.querySelectorAll('pre code').forEach((block) => {
             hljs.highlightBlock(block);
@@ -59,7 +62,7 @@ class SnippetAside {
     }
 
     editSnippetAction() {
-
+        let modalView = new AddSnippetModalView(this.mainView, this.snippet);
     }
 
     copySnippetAction() {

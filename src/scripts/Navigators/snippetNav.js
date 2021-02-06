@@ -34,6 +34,6 @@ export class SnippetNav {
     }
 
     showSnippet(e, i) {
-        this.mainView.snippetAside.loadSnippet(this.snippets[i]);
+        this.mainView.snippetAside.loadSnippet(this.snippets[i], i);
     }
 }
