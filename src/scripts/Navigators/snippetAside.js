@@ -34,10 +34,8 @@ class SnippetAside {
         this.snippet = snippet;
         this.title.innerHTML = this.snippet.title;
         this.description.innerHTML = `${this.snippet.description}`;
-        this.code.className = this.snippet.language;
+        this.code.className = this.snippet.extension;
         this.code.innerHTML = this.snippet.code;
-        this.code.className = '';
-        this.code.className = `${this.snippet.language}`;
         this.fileName.innerHTML = this.snippet.filename;
         document.querySelectorAll('pre code').forEach((block) => {
             hljs.highlightBlock(block);

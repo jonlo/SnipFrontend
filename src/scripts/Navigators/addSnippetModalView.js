@@ -47,15 +47,17 @@ export class AddSnippetModalView {
             title: this.titleInput.value,
             description: this.descriptionInput.value,
             code: this.snippetText.value,
-            language: this.filenameInput.value.split(".")[1],
+            extension: this.filenameInput.value.split(".")[1],
             filename: this.filenameInput.value,
             tags: []
         };
         if (this.updating) {
             snippetData.id = this.snippet._id;
             let response = await updateSnippet(snippetData);
+            console.log("update");
         } else {
             let response = await addSnippet(snippetData);
+            console.log("add");
         }
         this.mainView.snippetNav.loadSnippets();
 

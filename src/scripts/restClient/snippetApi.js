@@ -27,7 +27,7 @@ export const addSnippet = async (snippetData) => {
     urlencoded.append("title", snippetData.title);
     urlencoded.append("tags", snippetData.tags);
     urlencoded.append("description", snippetData.description);
-    urlencoded.append("language", snippetData.language);
+    urlencoded.append("extension", snippetData.extension);
     urlencoded.append("filename", snippetData.filename);
     urlencoded.append("code", snippetData.code);
     let user = JSON.parse(localStorage.user)
@@ -51,7 +51,7 @@ export const updateSnippet = async (snippetData) => {
     urlencoded.append("title", snippetData.title);
     urlencoded.append("tags", snippetData.tags);
     urlencoded.append("description", snippetData.description);
-    urlencoded.append("language", snippetData.language);
+    urlencoded.append("extension", snippetData.extension);
     urlencoded.append("filename", snippetData.filename);
     urlencoded.append("code", snippetData.code);
     let user = JSON.parse(localStorage.user)
